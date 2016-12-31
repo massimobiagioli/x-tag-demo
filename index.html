@@ -5,11 +5,27 @@
         <title>X-Tag Demo</title>
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="bower_components/x-tag-core/dist/x-tag-core.js"></script>
-        <script src="dist/dummy-bundle.min.js"></script>
+        <script src="dist/mylib.min.js"></script>
     </head>
     <body>
-        <dummy-component text="asdf"></dummy-component>
-        <br/>
-        <my-dataedit label="Descrizione" value="todo..."></my-dataedit>        
+        
+        <h2>Utilizzo componente anagrafica</h2>
+        
+        <span>#1: nessun dato</span>
+        <my-anagrafica></my-anagrafica>
+        <br>
+        
+        <span>#2: solo nome</span>
+        <my-anagrafica nome="Mario"></my-anagrafica>
+        <br>
+
+        <span>#3: solo nome e cognome</span>
+        <my-anagrafica nome="Mario" cognome="Rossi"></my-anagrafica>
+        <br>
+
+        <span>#4: tutti i dati</span>
+        <my-anagrafica nome="Mario" cognome="Rossi" indirizzo="via roma 1, Jesi(AN)"></my-anagrafica>
+        <br>
+            
     </body>
 </html>

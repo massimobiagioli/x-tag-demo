@@ -5,7 +5,7 @@ module.exports = {
   devtool: 'source-map',
   output: {
     path: './dist',
-    filename: 'dummy-bundle.min.js'
+    filename: 'mylib.min.js'
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
