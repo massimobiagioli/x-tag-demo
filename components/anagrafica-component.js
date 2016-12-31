@@ -16,7 +16,7 @@ xtag.register('my-anagrafica', {
                 divWrapper = $('<div></div>'),
                 info = '';
 
-            console.log('Componente anagrafica - lifecycle created');
+            console.log('Componente my-anagrafica - lifecycle created');
 
             if (!this.nome && !this.cognome && !this.indirizzo) {
                 var divMsg = $('<div></div>');
