@@ -16,26 +16,34 @@ var renderList = function(tag, element) {
     element.append(ul);
 };
 
-var renderTable = function(tag, element) {
-    var children = tag.children(),
-        table = $('<table></table>');
-
+var createTable = function() {
+    var table = $('<table></table>');
     table.attr('cellpadding', '2');
     table.attr('cellspacing', '2');
+    table.css('border', 'solid 1px black');
+    return table;
+}
 
+var createTr = function() {
     var tr = $('<tr></tr>');
+    return tr;
+}
 
+var createTd = function(text) {
     var td = $('<td></td>');
-    td.text('Nome');
-    tr.append(td);
+    td.css('border', 'solid 1px black');
+    td.text(text);
+    return td;
+}
 
-    var td = $('<td></td>');
-    td.text('Cognome');
-    tr.append(td);
+var renderTable = function(tag, element) {
+    var children = tag.children(),
+        table = createTable();
 
-    var td = $('<td></td>');
-    td.text('Indirizzo');
-    tr.append(td);
+    var tr = createTr();
+    tr.append(createTd('Nome'));
+    tr.append(createTd('Cognome'));
+    tr.append(createTd('Indirizzo'));
 
     table.append(tr);
 
@@ -44,20 +52,10 @@ var renderTable = function(tag, element) {
             childTagname = childTag.get(0).tagName.toLowerCase();
         
         if(childTagname === 'my-anagrafica') {      
-            var tr = $('<tr></tr>');
-
-            var td = $('<td></td>');
-            td.text(childTag.attr('nome'));
-            tr.append(td);
-
-            var td = $('<td></td>');
-            td.text(childTag.attr('cognome'));
-            tr.append(td);
-
-            var td = $('<td></td>');
-            td.text(childTag.attr('indirizzo'));
-            tr.append(td);
-
+            var tr = createTr();
+            tr.append(createTd(childTag.attr('nome')));
+            tr.append(createTd(childTag.attr('cognome')));
+            tr.append(createTd(childTag.attr('indirizzo')));
             table.append(tr);
         }
     }
